@@ -35,7 +35,7 @@ function makeWork(arrOfArr, func) {
     if (i == 0) {
       max = worker(arrOfArr[i]);
     } else {
-      if (max < worker(arrOfArr[i])) max = worker(arrOfArr[i]);
+      if (max < worker(arrOfArr[i])) max = worker2(arrOfArr[i]);
     }
   }
   return max;
@@ -43,5 +43,5 @@ function makeWork(arrOfArr, func) {
 
 // Задание 3
 function worker2(arr) {
-  // Ваш код
+  return Math.abs(arr[i]-arr[arr.lenght-1]);
 }
