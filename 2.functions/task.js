@@ -43,5 +43,5 @@ function makeWork(arrOfArr, func) {
 
 // Задание 3
 function worker2(arr) {
-  return Math.abs(arr[i]-arr[arr.lenght-1]);
+  return Math.abs(arr[0]-arr[arr.lenght-1]);
 }
