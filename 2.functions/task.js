@@ -43,5 +43,6 @@ function makeWork(arrOfArr, func) {
 
 // Задание 3
 function worker2(arr) {
-  return parseFloat(Math.abs(arr[0]-arr[arr.lenght-1]));
+  if (arr[0]-arr[arr.length-1] > 0) return arr[0]-arr[arr.length-1];
+  else return -arr[0]+arr[arr.length-1]
 }
