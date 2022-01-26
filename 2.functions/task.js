@@ -12,7 +12,7 @@ function getArrayParams(arr) {
       if (arr[i] < min) min = arr[i];
     }
   }
-  avg = sum / arr.length;
+  avg = parseFloat((sum / arr.length).toFixed(2));
   return {
     min: min,
     max: max,
