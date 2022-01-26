@@ -1,7 +1,7 @@
 // Задание 1
 function getArrayParams(arr) {
   let min, max, sum, avg;
-  for (let i = 0; i < arr.size(); i++) {
+  for (let i = 0; i < arr.length(); i++) {
     if (i == 0) {
       min = arr[i];
       max = arr[i];
@@ -12,7 +12,7 @@ function getArrayParams(arr) {
       if (arr[i] < min) min = arr[i];
     }
   }
-  avg = sum / arr.size();
+  avg = sum / arr.length();
   return {
     min: min,
     max: max,
