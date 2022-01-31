@@ -60,7 +60,14 @@ class Library {
         }
     }
     findBookBy(type, value) {
-        if(this.books.indexOf({[type]: value}) !== -1) return this.books.indexOf({[type]: value});
-        else return null;
+        for (let i = 0; i < this.books.length; i++)
+            if (this.books[i][type] === value) return this.books[i];
+        return null;
+    }
+    giveBookByName(bookName) {
+        for (let i = 0; i < this.books.length; i++)
+            if(this.books[i].name === bookName) {
+                return this.books.splice(i, 1);
+            }
     }
 }
