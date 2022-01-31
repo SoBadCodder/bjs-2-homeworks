@@ -66,8 +66,43 @@ class Library {
     }
     giveBookByName(bookName) {
         for (let i = 0; i < this.books.length; i++)
-            if(this.books[i].name === bookName) {
-                return this.books.splice(i, 1);
+            if (this.books[i].name === bookName) {
+                return this.books.splice(i, 1).pop();
             }
+        return null;
+    }
+}
+class Student {
+    constructor(name) {
+        this.name = name;
+    }
+    addMark(mark, nameSubject) {
+        if (mark > 0 && mark < 6) {
+            if (this[nameSubject] === undefined) this[nameSubject] = [mark];
+            else this[nameSubject].push(mark);
+        } else console.log("Ошибка, оценка должна быть числом от 1 до 5")
+    }
+    getAverageBySubject(nameSubject) {
+        if (this[nameSubject] === undefined) return "Несуществующий предмет";
+        else return this[nameSubject].reduce(function (sum, current) {
+            return sum + current
+        }, 0) / this[nameSubject].length;
+    }
+    getAverage() {
+        let sum = 0,
+            count = 0;
+        for (let key in this) {
+            if (this[key] !== this.name) {
+                for (let i = 0; i < this[key].length; i++) {
+                    sum += parseInt(this[key][i]);
+                    count++;
+                }
+
+            }
+        }
+        return sum / count;
+    }
+    exclude(reason) {
+        console.log(`Исключен за ${reason}`);
     }
 }
