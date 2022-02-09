@@ -1,17 +1,14 @@
 function parseCount(inputData) {
-    try {
-        let toInt = Number.parseInt(inputData);
-        if (Number.isNaN(toInt)) throw new Error("Невалидное значение");
-        return toInt;
-    } catch (err) {
-        throw err;
+    let toInt = Number.parseInt(inputData);
+    if (Number.isNaN(toInt)) {
+        throw new Error("Невалидное значение");
     }
+    return toInt;
 }
 
 function validateCount(inputVar) {
     try {
-        let parseToInt = parseCount(inputVar);
-        return parseToInt;
+        return parseCount(inputVar);
     } catch (err) {
         return err;
     }
@@ -21,7 +18,7 @@ class Triangle {
         this.firstSide = a;
         this.secondSide = b;
         this.thirdSide = c;
-        if (this.firstSide + this.secondSide <= this.thirdSide || this.firstSide + this.thirdSide <= this.secondSide || this.thirdSide + this.secondSide <= this.firstSide) {
+        if (a + b <= c || a + c <= b || b + c <= a) {
             throw new Error("Треугольник с такими сторонами не существует");
         }
     }
@@ -29,7 +26,7 @@ class Triangle {
         return parseFloat((this.firstSide + this.secondSide + this.thirdSide).toFixed(3));
     }
     getArea() {
-        let p = (this.firstSide + this.secondSide + this.thirdSide) / 2;
+        let p = this.getPerimeter() / 2;
         return parseFloat(Math.sqrt(p * (p - this.firstSide) * (p - this.secondSide) * (p - this.thirdSide)).toFixed(3));
     }
 }
